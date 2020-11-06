@@ -20,8 +20,6 @@ A new Flutter application helps buyers to complete their orders to reach amount 
 - [ ] Monetization
 - [ ] Publish to google play
 
-##Tasks
-
 [Design & modelisation]()
 
 ## Getting Started
