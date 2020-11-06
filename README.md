@@ -2,7 +2,7 @@
 
 A new Flutter application helps buyers to complete their orders to reach amount of free shipping.
 
-###Tasks
+## Tasks
 
 - [x] Flutter project creation
 - [x] Setup firebase project
