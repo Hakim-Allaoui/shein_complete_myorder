@@ -6,7 +6,7 @@ A new Flutter application helps buyers to complete their orders to reach amount 
 
 - [x] Flutter project creation
 - [x] Setup firebase project
-- [x] [Design & modelisation](https://github.com/pandao/editor.md "Heading link")
+- [x] [Design & modelisation](https://github.com/Hakim-Allaoui/shein_complete_myorder "Design & modelisation")
 - [ ] Screens
 	- [ ] Signup
 	- [ ] Login
