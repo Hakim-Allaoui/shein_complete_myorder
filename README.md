@@ -17,6 +17,8 @@ A new Flutter application helps buyers to complete their orders to reach amount 
 		- [ ] Add Order
 		- [ ] Contribute to order
 		- [ ] Order managment
+		- [ ] Re-sell
+		- [ ] Dommands
 - [ ] Monetization
 - [ ] Publish to google play
 

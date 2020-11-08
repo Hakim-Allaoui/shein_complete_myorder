@@ -24,80 +24,128 @@ class _HomeScreenState extends State<HomeScreen> {
         centerTitle: true,
       ),
       body: SafeArea(
+        child: SingleChildScrollView(
         child: Container(
-          height: Tools.height,
-          width: Tools.width,
-          child: SingleChildScrollView(
-          child: Container(
-            height: Tools.height,
+            height: Tools.height * 0.8,
             width: Tools.width,
             child: Column(
-                children: [
-                  Text(
-                    'Email or username',
-                    style: HKTextStyles.titleBold,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(25.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Email or username',
+                        style: HKTextStyles.titleBold,
+                      ),
+                      TextField(
+                        decoration: InputDecoration(
+                            fillColor: Colors.white,
+                            filled: true,
+                            border: InputBorder.none),
+                      ),
+                      SizedBox(
+                        height: 25.0,
+                      ),
+                      Text(
+                        'Password',
+                        style: HKTextStyles.titleBold,
+                      ),
+                      TextField(
+                        decoration: InputDecoration(
+                            fillColor: Colors.white,
+                            filled: true,
+                            border: InputBorder.none),
+                      ),
+                    ],
                   ),
-                  TextField(
-                    decoration: InputDecoration(
-                      hintText: 'Email oe username',
-                      fillColor: Colors.white,
-                      filled: true,
-                      border: new OutlineInputBorder(
-                        borderRadius: const BorderRadius.all(
-                          const Radius.circular(100.0),
+                ),
+                Column(
+                  children: [
+                    GFButton(
+                      onPressed: () {},
+                      blockButton: true,
+                      color: Colors.white,
+                      size: 50.0,
+                      shape: GFButtonShape.pills,
+                      textStyle: HKTextStyles.titleBold
+                          .apply(color: Colors.black, fontSizeFactor: 1.2),
+                      text: "Log in",
+                      /*icon: Container(
+                              height: 20.0,
+                              width: 20.0,
+                              child: Theme(
+                                data: ThemeData(
+                                  accentColor: Colors.black
+                                ),
+                                child: CircularProgressIndicator(
+                                  strokeWidth: 2.0,
+                                ),
+                              ),
+                            ),*/
+                    ),
+                    SizedBox(
+                      height: 25.0,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'Don\'t have account?',
+                          style: HKTextStyles.textNormal,
+                          textAlign: TextAlign.center,
                         ),
+                        GestureDetector(
+                          onTap: (){
+                            print('Sign up clicked !!');
+                          },
+                          child: Text(
+                            ' sign up',
+                            style: HKTextStyles.textNormal.apply(color: Colors.blue),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Text(
+                      '- Or -',
+                      style: HKTextStyles.textNormal,
+                      textAlign: TextAlign.center,
+                    ),
+                    SizedBox(
+                      height: 25.0,
+                    ),
+                    GFButton(
+                      onPressed: () {},
+                      blockButton: true,
+                      color: Colors.white,
+                      size: 50.0,
+                      shape: GFButtonShape.pills,
+                      textStyle: HKTextStyles.titleBold
+                          .apply(color: Colors.black, fontSizeFactor: 1.2),
+                      text: "Continue with Facebook",
+                      icon: Row(
+                        children: [
+                          Container(
+                            height: 35.0,
+                            width: 35.0,
+                            child: SvgPicture.asset(
+                              'assets/icons/ic_fb.svg',
+                            ),
+                          ),
+                          SizedBox(
+                            width: 10.0,
+                          )
+                        ],
                       ),
                     ),
-                  ),
-                  Text(
-                    'Password',
-                    style: HKTextStyles.titleBold,
-                  ),
-                  GFButton(
-                    onPressed: () {},
-                    blockButton: true,
-                    color: Colors.white,
-                    size: 50.0,
-                    textStyle: HKTextStyles.titleBold.apply(color: Colors.black, fontSizeFactor: 1.2),
-                    text: "Log in",
-                    /*icon: Container(
-                      height: 20.0,
-                      width: 20.0,
-                      child: Theme(
-                        data: ThemeData(
-                          accentColor: Colors.black
-                        ),
-                        child: CircularProgressIndicator(
-                          strokeWidth: 2.0,
-                        ),
-                      ),
-                    ),*/
-                  ),
-                  Text(
-                    'Don\'t have account? sign up\n- Or -',
-                    style: HKTextStyles.textNormal,
-                    textAlign: TextAlign.center,
-                  ),
-                  GFButton(
-                    onPressed: () {
-
-                    },
-                    blockButton: true,
-                    color: Colors.white,
-                    size: 50.0,
-                    textStyle: HKTextStyles.titleBold.apply(color: Colors.black),
-                    text: "Continue with Facebook",
-                    icon: Container(
-                      height: 35.0,
-                      width: 35.0,
-                      child: SvgPicture.asset(
-                          'assets/icons/ic_fb.svg',
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-          ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),

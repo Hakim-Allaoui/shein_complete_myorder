@@ -20,13 +20,13 @@ class HKTextStyles {
   );
 
   static const titleBold = TextStyle(
-    fontSize: 18,
+    fontSize: 16,
     color: Colors.white,
     fontWeight: FontWeight.w700
   );
 
   static const textNormal = TextStyle(
-    fontSize: 18,
+    fontSize: 16,
     color: Colors.white,
   );
 
