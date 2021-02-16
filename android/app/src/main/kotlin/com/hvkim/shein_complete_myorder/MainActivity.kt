@@ -1,4 +1,4 @@
-package com.amegodev.shein_complete_myorder
+package com.hvkim.shein_complete_myorder
 
 import io.flutter.embedding.android.FlutterActivity
 
