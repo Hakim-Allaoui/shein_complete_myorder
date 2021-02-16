@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class NewPage extends StatefulWidget {
+class CommandDetails extends StatefulWidget {
   @override
-  _NewPageState createState() => _NewPageState();
+  _CommandDetailsState createState() => _CommandDetailsState();
 }
 
-class _NewPageState extends State<NewPage> {
+class _CommandDetailsState extends State<CommandDetails> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -1,8 +1,8 @@
-import 'package:facebook_clone_flutter_app/utils/strings.dart';
-import 'package:facebook_clone_flutter_app/utils/theme.dart';
-import 'package:facebook_clone_flutter_app/utils/tools.dart';
+import 'package:shein_complete_myorder/utils/consts.dart';
+import 'package:shein_complete_myorder/utils/theme.dart';
+import 'package:shein_complete_myorder/utils/tools.dart';
 import 'package:flutter/material.dart';
-
+import 'package:easy_localization/easy_localization.dart';
 
 class RatingDialog extends StatefulWidget {
   @override
@@ -24,8 +24,7 @@ class _RatingDialogState extends State<RatingDialog> {
         if (starCount >= 4) {
           Navigator.pop(context);
           var url =
-              'https://play.google.com/store/apps/details?id=' +
-                  Strings.packageName;
+              'https://play.google.com/store/apps/details?id=' + package_name;
           Tools.launchURL(url);
         }
         setState(() {
@@ -48,26 +47,39 @@ class _RatingDialogState extends State<RatingDialog> {
                   width: 80,
                   child: Image.asset('assets/icon.png'),
                 ),
-                SizedBox(width: 10.0,),
+                SizedBox(
+                  width: 10.0,
+                ),
                 Expanded(
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          Strings.appName,
-                          style: MyTextStyles.titleBold.apply(color: Palette.facebookBlue),
-                        ),
-                        Text(
-                          'version ${Strings.version}(${Strings.buildNumber})',
-                          style: MyTextStyles.subTitle,
-                        ),
-                      ],
-                    ))
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'app_name'.tr(),
+                      style:
+                          MyTextStyles.titleBold.apply(color: Palette.accent),
+                    ),
+                    Text(
+                      'version $version($build_number)',
+                      style: MyTextStyles.textNormal,
+                    ),
+                  ],
+                ))
               ],
             ),
-            SizedBox(height: 20.0,),
-            Text(Strings.ratingText, textAlign: TextAlign.center, style: MyTextStyles.subTitle,),
-            Text('👇 Please Rate App 👇', textAlign: TextAlign.center, style: MyTextStyles.subTitle,),
+            SizedBox(
+              height: 20.0,
+            ),
+            Text(
+              'rating_text'.tr(),
+              textAlign: TextAlign.center,
+              style: MyTextStyles.textNormal,
+            ),
+            Text(
+              '👇 Please Rate App 👇',
+              textAlign: TextAlign.center,
+              style: MyTextStyles.textNormal,
+            ),
           ],
         ),
       ),
@@ -83,13 +95,19 @@ class _RatingDialogState extends State<RatingDialog> {
       ),
       actions: <Widget>[
         FlatButton(
-          child: Text('CANCEL', style: MyTextStyles.titleBold.apply(color: Palette.gradient1),),
+          child: Text(
+            'CANCEL',
+            style: MyTextStyles.titleBold.apply(color: Palette.gradient1),
+          ),
           onPressed: () {
             Navigator.pop(context, 0);
           },
         ),
         FlatButton(
-          child: Text('OK', style: MyTextStyles.titleBold.apply(color: Palette.gradient3),),
+          child: Text(
+            'OK',
+            style: MyTextStyles.titleBold.apply(color: Palette.gradient3),
+          ),
           onPressed: () {
             Navigator.of(context).pop(_stars);
           },

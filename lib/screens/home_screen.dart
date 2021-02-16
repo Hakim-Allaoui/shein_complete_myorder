@@ -1,151 +1,67 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_markdown/flutter_markdown.dart';
+
 import 'package:shein_complete_myorder/utils/theme.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:shein_complete_myorder/utils/tools.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:url_launcher/url_launcher.dart';
 
-class HomeScreen extends StatefulWidget {
-  static const String route = '/home';
-
+class HomePage extends StatefulWidget {
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  _HomePageState createState() => _HomePageState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,
         title: Text(
-          'Log in',
-          style: HKTextStyles.titleBigBold,
+          'home'.tr(),
+          style: MyTextStyles.titleBigBold,
         ),
         centerTitle: true,
       ),
       body: SafeArea(
-        child: SingleChildScrollView(
         child: Container(
-            height: Tools.height * 0.8,
-            width: Tools.width,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(25.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Email or username',
-                        style: HKTextStyles.titleBold,
+          height: Tools.height,
+          width: Tools.width,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Expanded(
+                child: Container(
+                  margin: EdgeInsets.all(16.0),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15.0),
+                    color: Color(0xffdcaaaa),
+                    border: Border.all(
+                      color: Color(0xffdc5555),
+                      width: 1.0,
+                    ),
+                  ),
+                  child: Markdown(
+                    data: 'rating_dialog'.tr(),
+                    styleSheet: MarkdownStyleSheet(
+                      p: MyTextStyles.textNormal.apply(
+                        color: Color(0xffdc5555),
                       ),
-                      TextField(
-                        decoration: InputDecoration(
-                            fillColor: Colors.white,
-                            filled: true,
-                            border: InputBorder.none),
-                      ),
-                      SizedBox(
-                        height: 25.0,
-                      ),
-                      Text(
-                        'Password',
-                        style: HKTextStyles.titleBold,
-                      ),
-                      TextField(
-                        decoration: InputDecoration(
-                            fillColor: Colors.white,
-                            filled: true,
-                            border: InputBorder.none),
-                      ),
-                    ],
+                    ),
+                    onTapLink: (link) async {
+                      if (await canLaunch(link)) {
+                        await launch(link);
+                      } else {
+                        throw 'Could not launch $link';
+                      }
+                    },
                   ),
                 ),
-                Column(
-                  children: [
-                    GFButton(
-                      onPressed: () {},
-                      blockButton: true,
-                      color: Colors.white,
-                      size: 50.0,
-                      shape: GFButtonShape.pills,
-                      textStyle: HKTextStyles.titleBold
-                          .apply(color: Colors.black, fontSizeFactor: 1.2),
-                      text: "Log in",
-                      /*icon: Container(
-                              height: 20.0,
-                              width: 20.0,
-                              child: Theme(
-                                data: ThemeData(
-                                  accentColor: Colors.black
-                                ),
-                                child: CircularProgressIndicator(
-                                  strokeWidth: 2.0,
-                                ),
-                              ),
-                            ),*/
-                    ),
-                    SizedBox(
-                      height: 25.0,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          'Don\'t have account?',
-                          style: HKTextStyles.textNormal,
-                          textAlign: TextAlign.center,
-                        ),
-                        GestureDetector(
-                          onTap: (){
-                            print('Sign up clicked !!');
-                          },
-                          child: Text(
-                            ' sign up',
-                            style: HKTextStyles.textNormal.apply(color: Colors.blue),
-                            textAlign: TextAlign.center,
-                          ),
-                        ),
-                      ],
-                    ),
-                    Text(
-                      '- Or -',
-                      style: HKTextStyles.textNormal,
-                      textAlign: TextAlign.center,
-                    ),
-                    SizedBox(
-                      height: 25.0,
-                    ),
-                    GFButton(
-                      onPressed: () {},
-                      blockButton: true,
-                      color: Colors.white,
-                      size: 50.0,
-                      shape: GFButtonShape.pills,
-                      textStyle: HKTextStyles.titleBold
-                          .apply(color: Colors.black, fontSizeFactor: 1.2),
-                      text: "Continue with Facebook",
-                      icon: Row(
-                        children: [
-                          Container(
-                            height: 35.0,
-                            width: 35.0,
-                            child: SvgPicture.asset(
-                              'assets/icons/ic_fb.svg',
-                            ),
-                          ),
-                          SizedBox(
-                            width: 10.0,
-                          )
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
+              )
+            ],
           ),
         ),
       ),

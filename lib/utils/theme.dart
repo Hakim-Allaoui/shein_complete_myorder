@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 
-class HKColors {
+class Palette {
   static const Color primary = Color(0xff000000);
   static const Color accent = Color(0xffffffff);
+
+  static const Color gradient1 = Color(0xff101010);
+  static const Color gradient2 = Color(0xffE0E0E0);
+  static const Color gradient3 = Color(0xFF101010);
+
 }
 
-class HKTextStyles {
+class MyTextStyles {
 
   static const titleExtraBold = TextStyle(
       fontSize: 48,

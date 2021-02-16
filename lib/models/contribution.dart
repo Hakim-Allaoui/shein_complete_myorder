@@ -1,6 +1,12 @@
-import 'package:flutter/material.dart';
+import 'package:shein_complete_myorder/models/person.dart';
 
 class Contribution{
+  Person creator;
   String createdAt;
-  bool 
+  List<Person> contributors;
+  double currentPrice;
+  double minPrice;
+  double maxPrice;
+  bool active;
+  String location;
 }

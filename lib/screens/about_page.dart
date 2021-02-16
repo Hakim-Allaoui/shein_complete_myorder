@@ -1,11 +1,13 @@
-import 'package:facebook_clone_flutter_app/utils/strings.dart';
-import 'package:facebook_clone_flutter_app/utils/theme.dart';
-import 'package:facebook_clone_flutter_app/widgets/appbar.dart';
-import 'package:facebook_clone_flutter_app/widgets/drawer.dart';
+import 'package:shein_complete_myorder/utils/consts.dart';
+import 'package:shein_complete_myorder/utils/theme.dart';
+import 'package:shein_complete_myorder/utils/tools.dart';
+import 'package:shein_complete_myorder/widgets/appbar.dart';
+import 'package:shein_complete_myorder/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class AboutPage extends StatefulWidget {
   @override
@@ -30,7 +32,7 @@ class _AboutPageState extends State<AboutPage> {
     return Scaffold(
       key: scaffoldKey,
       drawer: HKDrawer.buildDrawer(context),
-      backgroundColor: Palette.greyLight,
+      backgroundColor: Palette.primary,
       body: Stack(
         children: <Widget>[
           Positioned(
@@ -48,22 +50,32 @@ class _AboutPageState extends State<AboutPage> {
             children: <Widget>[
               CustomAppBar(
                 scaffoldKey: scaffoldKey,
+                leading: IconButton(
+                  icon: Icon(Icons.arrow_back_ios, color: Colors.white,),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                ),
                 title: Text(
-                  Strings.about,
-                  style: MyTextStyles.bigTitleBold.apply(color: Palette.black),
+                  'about'.tr(),
+                  style: MyTextStyles.titleBigBold.apply(color: Palette.accent),
                   textAlign: TextAlign.center,
                 ),
               ),
               Expanded(
                 child: Markdown(
-                  data: Strings.aboutText,
-                  onTapLink: (link) async {
-                    if (await canLaunch(link)) {
-                      await launch(link);
-                    } else {
-                      throw 'Could not launch $link';
-                    }
+                  data: about_text,
+                  onTapLink: (link) {
+                    Tools.launchURL(link);
                   },
+                  styleSheet: MarkdownStyleSheet(
+                    p: TextStyle(color: Colors.white),
+                    listBullet: TextStyle(color: Colors.white),
+                    tableBody: TextStyle(color: Colors.white),
+                    h4: TextStyle(color: Colors.white),
+                    h6: TextStyle(color: Colors.white),
+                    h6Align: WrapAlignment.center,
+                  ),
                 ),
               ),
             ],

@@ -6,4 +6,15 @@ class HKNavigator {
     Navigator.pushReplacementNamed(context, '/home');
   }
 
+  static void goAuth(BuildContext context){
+    Navigator.pushReplacementNamed(context, '/auth');
+  }
+
+  static void goPrivacy(BuildContext context){
+    Navigator.pushNamed(context, '/privacy');
+  }
+
+  static void goAbout(BuildContext context){
+    Navigator.pushNamed(context, '/about');
+  }
 }

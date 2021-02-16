@@ -3,11 +3,11 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:facebook_clone_flutter_app/utils/consts.dart';
-import 'package:facebook_clone_flutter_app/utils/tools.dart';
 import 'package:flutter/widgets.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:shein_complete_myorder/utils/consts.dart';
+import 'package:shein_complete_myorder/utils/tools.dart';
 
 class Auth with ChangeNotifier {
   String _token;
@@ -150,11 +150,11 @@ class Auth with ChangeNotifier {
     prefs.clear();
   }
 
-  void _autoLogout() {
+/*  void _autoLogout() {
     if (_authTimer != null) {
       _authTimer.cancel();
     }
     final timeToExpiry = _expiryDate.difference(DateTime.now()).inSeconds;
     _authTimer = Timer(Duration(seconds: timeToExpiry), logout);
-  }
+  }*/
 }

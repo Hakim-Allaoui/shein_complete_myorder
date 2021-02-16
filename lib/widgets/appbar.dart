@@ -1,5 +1,5 @@
-import 'package:facebook_clone_flutter_app/utils/theme.dart';
-import 'package:facebook_clone_flutter_app/widgets/rate_dialog.dart';
+import 'package:shein_complete_myorder/utils/theme.dart';
+import 'package:shein_complete_myorder/widgets/rate_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -41,7 +41,7 @@ class CustomAppBar extends StatelessWidget {
                       padding: const EdgeInsets.all(4.0),
                       child: SvgPicture.asset(
                         'assets/icons/burger_menu.svg',
-                        color: Palette.black,
+                        color: Palette.accent,
                       ),
                     ),
                     onPressed: () => scaffoldKey.currentState.openDrawer(),
